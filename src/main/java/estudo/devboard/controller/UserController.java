@@ -22,18 +22,15 @@ import estudo.devboard.mapper.UserMapper;
 import estudo.devboard.model.User;
 import estudo.devboard.service.UserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
-
-    public UserController(UserService userService, UserMapper userMapper) {
-        this.userService = userService;
-        this.userMapper = userMapper;
-    }
 
     @GetMapping
     public ResponseEntity<List<UserResponseDTO>> listarUsuarios() {
@@ -74,7 +71,7 @@ public class UserController {
 
         if (resultado.isEmpty()) {
             return ResponseEntity.notFound().build();
-        }
+        }   
 
         User user = resultado.get();
         userMapper.updateEntity(user, dto);

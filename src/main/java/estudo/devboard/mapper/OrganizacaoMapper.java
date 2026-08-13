@@ -17,7 +17,7 @@ public class OrganizacaoMapper {
         return organizacao;
     }
 
-    public void updateEntity(Organizacao organizacao, OrganizacaoUpdateDTO dto) {
+    public void updateEntity(Organizacao organizacao, OrganizacaoCreatedDTO dto) {
         if (dto.nome() != null) {
             organizacao.setNome(dto.nome());
         }

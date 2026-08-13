@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,11 +30,13 @@ public class Organizacao {
     private UUID id;
 
     @NotBlank
+    @Size(max = 100)
     @Column(nullable = false, length = 100)
     private String nome;
 
     @NotBlank
-    @Column(unique = true, nullable = false)
+    @Size(max = 50)
+    @Column(unique = true, nullable = false, length = 50)
     private String codigo;
 
     @OneToMany(mappedBy = "organizacao", fetch = FetchType.LAZY)
