@@ -1,0 +1,11 @@
+package estudo.devboard.domain.projeto;
+
+import java.util.UUID;
+
+public record ProjetosResponseDTO(
+    UUID id,
+    String nome,
+    String descricao,
+    UUID organizacaoId
+) {
+}
